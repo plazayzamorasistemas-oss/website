@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plaza y Zamora Sistemas | Soluciones Tecnológicas</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+            <img src="img/logo.png" alt="Logo Plaza y Zamora Sistemas" class="logo-img">
+            Plaza y Zamora Sistemas
+        </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    
+                    <!-- Menú Desplegable: Productos -->
+                    <li class="dropdown">
+                        <a href="productos.html" class="dropdown-toggle">
+                            Productos <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="productos.html#nomina">Sistema de Nómina</a></li>
+                            <li><a href="productos.html#caja">Control de Ventas / Caja</a></li>
+                            <li><a href="productos.html#vitrina">Vitrina Web de Productos</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Menú Desplegable: Cursos -->
+                    <li class="dropdown">
+                        <a href="cursos.html" class="dropdown-toggle">
+                            Cursos <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="cursos.html#android">Programación Android</a></li>
+                            <li><a href="cursos.html#microsoft">Tecnologías Microsoft .NET</a></li>
+                            <li><a href="cursos.html#java">Desarrollo JAVA</a></li>
+                            <li><a href="cursos.html#php">Programación Web PHP</a></li>
+                            <li><a href="cursos.html#linux">Administración Linux</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contacto.html" class="btn-nav">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal / Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Soluciones de Software y Capacitación Especializada</h1>
+            <p>Mejoramos la productividad desarrollando aplicaciones a medida y formando profesionales en las tecnologías más demandadas del mercado.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5491123456789?text=Feliz%20dia,%20quiero%20informacion%20sobre%20sus%20productos " 
+                    class="btn btn-primary" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
+                <a href="cursos.html" class="btn btn-secondary">Explorar Cursos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container main-layout">
+        
+        <!-- Contenido Central -->
+        <div class="content-area">
+            
+            <!-- Tarjeta: Zonas Atendidas -->
+            <article class="card">
+                <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="card-body">
+                    <h2>Zonas Atendidas</h2>
+                    <p>Nos ubicamos en la zona de <strong>Guarenas, Estado Miranda</strong>. Atendemos personalmente las zonas de <strong>Caracas, Guarenas y Guatire</strong> . Para otras regiones contamos con asistencia remota para cubrir las necesidades de nuestros clientes.</p>
+                </div>
+            </article>
+
+            <!-- Tarjeta: Entrevistas -->
+            <article class="card">
+                <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="card-body">
+                    <h2>¿Desea una entrevista presencial?</h2>
+                    <p>Nos trasladamos hasta su oficina, empresa o negocio  . Envíenos un correo con la dirección exacta y con gusto coordinaremos una visita técnica.</p>
+                    <p>Para reuniones virtuales contamos con los recursos necesarios para asegurar una comunicación efectiva.</p>
+                </div>
+            </article>
+
+            <!-- Tarjeta: Asesoría Particular -->
+            <article class="card card-highlight">
+                <div class="card-icon"><i class="fa-solid fa-user-gear"></i></div>
+                <div class="card-body">
+                    <h2>¿Es un particular y requiere asesoría?</h2>
+                    <p>Diseñamos capacitaciones y asesorías personalizadas adaptadas a su requerimiento específico. Contáctenos para ofrecerle una solución a la medida.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Barra Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fa-solid fa-users"></i> Quiénes Somos</h3>
+                <p>Somos profesionales en el área de sistemas con vasta experiencia en desarrollo de aplicaciones para moviles y estaciones de trabajo, Servidores y arquitecturas multicapa (Windows, Linux, Unix y Android)  . Especialistas en Servicios Web SOAP/REST y bases de datos Oracle, SQL Server, PostgreSQL, MySQL y SQLite.</p>
+                
+                <div class="qr-container">
+                    <img src="img/qr_code.jpg" alt="Código QR de contacto" class="qr-code"/>
+                    <span>Escanea para guardar contacto</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card contact-box">
+                <h3><i class="fa-solid fa-address-book"></i> Canales Directos</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> <strong>0412 914 50 76</strong>  </li>
+                    <li><i class="fa-solid fa-envelope"></i> plazayzamorasistemas@gmail.com  </li>
+                </ul>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Plaza y Zamora Sistemas. Todos los derechos reservados.</p>
+            <p>Teléfono: <strong>0412 914 50 76</strong>  </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
