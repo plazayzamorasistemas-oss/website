@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cursos Especializados | Plaza y Zamora Sistemas</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Deja un espacio superior al navegar por anclajes para que la barra fija no los oculte */
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id], article[id] {
+            scroll-margin-top: 160px;
+        }
+        .course-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.course-toggle:hover {
+    background: #e9ecef;
+}
+
+.course-content {
+    background: #ffffff;
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    border-radius: 0 0 5px 5px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="img/logo.png" alt="Logo Plaza y Zamora Sistemas" class="logo-img">
+                Plaza y Zamora Sistemas
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="productos.html" class="dropdown-toggle">Productos <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="productos.html#nomina">Sistema de Nómina</a></li>
+                            <li><a href="productos.html#caja">Control de Ventas / Caja</a></li>
+                            <li><a href="productos.html#vitrina">Vitrina Web de Productos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="cursos.html" class="dropdown-toggle active">Cursos <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#android">Programación Android</a></li>
+                            <li><a href="#microsoft">Tecnologías Microsoft .NET</a></li>
+                            <li><a href="#java">Desarrollo JAVA</a></li>
+                            <li><a href="#php">Programación Web PHP</a></li>
+                            <li><a href="#javascript">Programación JavaScript</a></li>
+                            <li><a href="#linux">Administración Linux</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.html" class="btn-nav">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal / Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Soluciones de Software y Capacitación Especializada</h1>
+            <p>Mejoramos la productividad desarrollando aplicaciones a medida y formando profesionales en las tecnologías más demandadas del mercado.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5491123456789?text=Feliz%20dia,%20quiero%20informacion%20sobre%20los%20cursos " 
+                    class="btn btn-primary" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container main-layout">
+        <div class="content-area">
+            <article class="card" id="android">
+                <div class="card-icon"><i class="fa-brands fa-android"></i></div>
+                <div class="card-body">
+                    <!-- Dentro de la sección con id="android" -->
+<h2>Cursos de Programación Android</h2>
+<p>Todos los cursos hacen uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en desarrollo de software.</p>
+<p>Cursos disponibles (haz clic para ver detalles):</p>
+
+<!-- Lista de cursos como botones -->
+<div class="course-list">
+
+
+     <button class="course-toggle" onclick="toggleCourse('intro-android')">
+        Introducción a la programación con Android (20 horas)
+    </button>
+    <div id="intro-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Conocer el flujo básico de creación de aplicaciones móviles en Android utilizando herramientas modernas y comprendiendo la estructura esencial de un proyecto.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> El Ecosistema Android (5h): Introducción a Android Studio, emuladores, dispositivos físicos y estructura de archivos de un proyecto (manifest, gradle, recursos).</li>
+            <li><strong>Módulo 2:</strong> Interfaces de Usuario (8h): Diseño de pantallas intuitivas, uso de componentes visuales estándar y principios básicos de diseño adaptable para diferentes tamaños de pantalla.</li>
+            <li><strong>Módulo 3:</strong> Navegación y Lógica Básica (5h): Transiciones entre pantallas (Intents), paso de datos básicos y gestión de eventos táctiles.</li>
+            <li><strong>Módulo 4:</strong> Despliegue y Pruebas (2h): Generación de archivos APK/AAB y pruebas básicas en dispositivos de desarrollo.</li>
+        </ul>
+    </div>
+
+
+    <button class="course-toggle" onclick="toggleCourse('java-android')">
+        Introducción a la programación Android con JAVA (40 horas)
+    </button>
+    <div id="java-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Adquirir los fundamentos del lenguaje Java y aplicarlos en el desarrollo de las primeras aplicaciones móviles nativas bajo la plataforma Android.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Fundamentos de Java (15h): Sintaxis, tipos de datos, estructuras de control, POO y manejo de excepciones.</li>
+            <li><strong>Módulo 2:</strong> Introducción al Entorno Android (10h): Android Studio, arquitectura, ciclo de vida de Actividades y diseño XML.</li>
+            <li><strong>Módulo 3:</strong> Componentes y UI Interactiva (10h): Widgets, layouts y gestión de eventos.</li>
+            <li><strong>Módulo 4:</strong> Proyecto Práctico (5h): Desarrollo de una calculadora integrada.</li>
+        </ul>
+    </div>
+    
+    <button class="course-toggle" onclick="toggleCourse('javadb-android')">
+        Programación Android con JAVA y base de datos SQLite (20 horas)
+    </button>
+    <div id="javadb-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Implementar sistemas de persistencia local de datos en aplicaciones Android utilizando bases de datos SQLite y librerías modernas de abstracción.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong> y el curso <strong>Introducción a la programación JAVA con Android (40 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Fundamentos de Bases de Datos en Android (5h): Introducción a SQLite, diseño de esquemas relacionales y uso de la clase SQLiteOpenHelper para la gestión de tablas y versiones.</li>
+            <li><strong>Módulo 2:</strong> Operaciones CRUD (7h): Implementación de consultas SQL para crear, leer, actualizar y eliminar registros directamente desde la aplicación.</li>
+            <li><strong>Módulo 3:</strong> Introducción a Room (ORM) (5h): Ventajas de utilizar la librería Room de Android Jetpack, definición de entidades, DAOs (Data Access Objects) y bases de datos.</li>
+            <li><strong>Módulo 4:</strong> Proyecto Práctico (3h): Desarrollo de una aplicación móvil con persistencia local de datos de usuario (gestor de inventario offline).</li>
+        </ul>
+    </div>
+
+    <button class="course-toggle" onclick="toggleCourse('javaws-android')">
+        Programación Android con JAVA y servicios WEB (20 horas)
+    </button>
+    <div id="javaws-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Conectar aplicaciones Android con fuentes de datos externas mediante el consumo de APIs REST y servicios web remotos.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong> y el curso <strong>Introducción a la programación JAVA con Android (40 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Comunicaciones de Red en Android (5h): Conceptos de cliente-servidor, protocolos HTTP/HTTPS, permisos de red y manejo de hilos secundarios en Android (Coroutines o tareas asíncronas).</li>
+            <li><strong>Módulo 2:</strong> Consumo de APIs REST con Retrofit (8h): Configuración e integración de la librería Retrofit, serialización y deserialización de datos utilizando formatos JSON.</li>
+            <li><strong>Módulo 3:</strong> Procesamiento y Visualización (4h): Mapeo de respuestas de servidores a modelos de datos locales y presentación eficiente en interfaces de usuario (ListView o RecyclerView).</li>
+            <li><strong>Módulo 4:</strong> Pruebas y Depuración de Red (3h): Uso de herramientas de inspección de tráfico de red y gestión de errores comunes por conectividad.</li>
+        </ul>
+    </div>
+
+     <button class="course-toggle" onclick="toggleCourse('kotlin-android')">
+        Introducción a la programación Android con Kotlin (40 horas)
+    </button>
+    <div id="kotlin-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Dominar el lenguaje de programación Kotlin y aplicarlo de manera idiomática en el desarrollo moderno de aplicaciones nativas para Android.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Sintaxis y Fundamentos de Kotlin (15h): Variables, nulabilidad, funciones, clases, objetos, lambdas y programación funcional aplicada.</li>
+            <li><strong>Módulo 2:</strong> Arquitectura y Entorno Android Moderno (10h): Estructura de proyectos actuales en Android Studio, Jetpack Compose o XML moderno, y gestión del ciclo de vida.</li>
+            <li><strong>Módulo 3:</strong> Componentes Avanzados y UI (10h): Gestión de estados, diseño de interfaces responsivas y navegación entre componentes.</li>
+            <li><strong>Módulo 4:</strong> Proyecto Final Integrador (5h): Creación de una aplicación funcional completa escrita íntegramente en Kotlin siguiendo las mejores prácticas de la industria.</li>
+        </ul>
+    </div>
+
+
+    <button class="course-toggle" onclick="toggleCourse('kotlindb-android')">
+        Programación Android con Kotlin y base de datos SQLite (20 horas)
+    </button>
+    <div id="kotlindb-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Implementar sistemas de persistencia local de datos en aplicaciones Android utilizando bases de datos SQLite y librerías modernas de abstracción.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong> y el curso <strong>Introducción a la programación Kotlin con Android (40 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Fundamentos de Bases de Datos en Android (5h): Introducción a SQLite, diseño de esquemas relacionales y uso de la clase SQLiteOpenHelper para la gestión de tablas y versiones.</li>
+            <li><strong>Módulo 2:</strong> Operaciones CRUD (7h): Implementación de consultas SQL para crear, leer, actualizar y eliminar registros directamente desde la aplicación.</li>
+            <li><strong>Módulo 3:</strong> Introducción a Room (ORM) (5h): Ventajas de utilizar la librería Room de Android Jetpack, definición de entidades, DAOs (Data Access Objects) y bases de datos.</li>
+            <li><strong>Módulo 4:</strong> Proyecto Práctico (3h): Desarrollo de una aplicación móvil con persistencia local de datos de usuario (gestor de inventario offline).</li>
+        </ul>
+    </div>
+
+    <button class="course-toggle" onclick="toggleCourse('kotlinws-android')">
+        Programación Android con Kotlin y servicios WEB (20 horas)
+    </button>
+    <div id="kotlinws-android" class="course-content" style="display: none;">
+        <p><strong>Objetivo:</strong> Conectar aplicaciones Android con fuentes de datos externas mediante el consumo de APIs REST y servicios web remotos.</p>
+        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Android (20 horas)</strong> y el curso <strong>Introducción a la programación Kotlin con Android (40 horas)</strong>.</p>
+        <p><strong>Contenido:</strong></p>
+        <ul>
+            <li><strong>Módulo 1:</strong> Comunicaciones de Red en Android (5h): Conceptos de cliente-servidor, protocolos HTTP/HTTPS, permisos de red y manejo de hilos secundarios en Android (Coroutines o tareas asíncronas).</li>
+            <li><strong>Módulo 2:</strong> Consumo de APIs REST con Retrofit (8h): Configuración e integración de la librería Retrofit, serialización y deserialización de datos utilizando formatos JSON.</li>
+            <li><strong>Módulo 3:</strong> Procesamiento y Visualización (4h): Mapeo de respuestas de servidores a modelos de datos locales y presentación eficiente en interfaces de usuario (ListView o RecyclerView).</li>
+            <li><strong>Módulo 4:</strong> Pruebas y Depuración de Red (3h): Uso de herramientas de inspección de tráfico de red y gestión de errores comunes por conectividad.</li>
+        </ul>
+    </div>
+
+
+</div>
+                </div>
+            </article>
+
+            <article class="card" id="microsoft">
+                <div class="card-icon"><i class="fa-brands fa-microsoft"></i></div>
+                <div class="card-body">
+                    <h2>Tecnologías Microsoft .NET</h2>
+                    <p>Todos los cursos hacen uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en desarrollo de software.</p>
+                    <p>Cursos disponibles (haz clic para ver detalles):</p>
+                    
+                    <button class="course-toggle" onclick="toggleCourse('VB-microsoft')">
+                        Introducción a la programación con Visual Basic .NET (40 horas)
+                    </button>
+                    <div id="VB-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Comprender los fundamentos de la programación orientada a objetos y el desarrollo de aplicaciones de escritorio utilizando el lenguaje Visual Basic .NET y el entorno de Visual Studio.</p>
+                        <p><strong>Requisito:</strong> Para todo público. <strong>NO se requiere experiencia en programación.</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción al Entorno y Sintaxis (10h): Estructura de Visual Studio, tipos de datos, variables, operadores y estructuras de control de flujo (condicionales y bucles).</li>
+                            <li><strong>Módulo 2:</strong> Programación Orientada a Objetos en VB.NET (10h): Clases, objetos, herencia, encapsulamiento, polimorfismo y manejo de excepciones.</li>
+                            <li><strong>Módulo 3:</strong> Desarrollo de Interfaces de Usuario (Windows Forms) (10h): Uso de controles estándar (botones, cuadros de texto, tablas), gestión de eventos y creación de formularios múltiples.</li>
+                            <li><strong>Módulo 4:</strong> Desarrollo de una aplicación de escritorio completa con persistencia básica de datos (10h).</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('CS-microsoft')">
+                        Programación con C# .NET (40 horas)
+                    </button>
+                    <div id="CS-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Dominar el lenguaje C# y las características esenciales del framework .NET para construir aplicaciones robustas, escalables y orientadas a objetos.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Visual Basic .NET (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de C# (10h): Sintaxis básica, tipos de valor y referencia, arreglos, colecciones y manejo seguro de errores con bloques try-catch.</li>
+                            <li><strong>Módulo 2:</strong> POO Avanzada en C# (10h): Principios de diseño orientado a objetos, interfaces, clases abstractas, delegados y expresiones LINQ para consultas de datos.</li>
+                            <li><strong>Módulo 3:</strong> Programación Asíncrona y Entrada/Salida (10h): Uso de hilos, tareas asíncronas con async/await y lectura/escritura de archivos locales.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Integrador (10h): Creación de una aplicación modular en consola o escritorio aplicando buenas prácticas de código limpio.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('ASP-microsoft')">
+                        Programación con ASP .NET (40 horas)
+                    </button>
+                    <div id="ASP-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Diseñar y desarrollar aplicaciones web dinámicas y seguras del lado del servidor utilizando la arquitectura y las herramientas de ASP.NET.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con Visual Basic .NET (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción al Desarrollo Web y ASP.NET (10h): Arquitectura cliente-servidor, protocolo HTTP, modelo de ciclo de vida de páginas y uso de ASP.NET Core MVC o Web Forms.</li>
+                            <li><strong>Módulo 2:</strong> Gestión de Vistas y Formularios Web (10h): Creación de interfaces responsivas con HTML/CSS integradas al servidor, validación de datos y paso de información mediante controladores.</li>
+                            <li><strong>Módulo 3:</strong> Conexión a Bases de Datos con Entity Framework (10h): Mapping objeto-relacional (ORM), consultas LINQ to Entities y operaciones CRUD conectadas a una base de datos SQL.</li>
+                            <li><strong>Módulo 4:</strong> Autenticación y Despliegue (10h): Gestión de usuarios, seguridad básica, manejo de sesiones y publicación de la aplicación web en un servidor de prueba o producción.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('ws-microsoft')">
+                        ASP .NET y servicios WEB (20 horas)
+                    </button>
+                    <div id="ws-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Exponer y consumir servicios web basados en arquitecturas modernas (RESTful APIs) utilizando ASP.NET Core para la integración con sistemas externos.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Programación con ASP .NET (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de APIs Web (5h): Conceptos de servicios web, verbos HTTP (GET, POST, PUT, DELETE), códigos de estado y formato JSON.</li>
+                            <li><strong>Módulo 2:</strong> Creación de Web APIs con ASP.NET Core (8h): Configuración de controladores, enrutamiento, inyección de dependencias y serialización de datos.</li>
+                            <li><strong>Módulo 3:</strong> Seguridad y Consumo de Servicios (4h): Implementación de autenticación basada en tokens (JWT) y pruebas de endpoints mediante la herramienta Postman.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (3h): Desarrollo y consumo de una API RESTful funcional integrada a una base de datos ligera.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('MAUI-microsoft')">
+                        Introducción a la tecnología .NET MAUI (20 horas)
+                    </button>
+                    <div id="MAUI-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Crear aplicaciones multiplataforma nativas (móviles y de escritorio) utilizando una única base de código compartida con .NET MAUI (Multi-platform App UI).</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Programación con ASP .NET (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de .NET MAUI (5h): Arquitectura del framework, configuración del entorno de desarrollo y estructura de proyectos multiplataforma.</li>
+                            <li><strong>Módulo 2:</strong> Diseño de Interfaces con XAML (7h): Uso de layouts (StackLayout, Grid), controles visuales multiplataforma y enlace de datos (Data Binding).</li>
+                            <li><strong>Módulo 3:</strong> Navegación y Arquitectura MVVM (5h): Implementación del patrón Model-View-ViewModel, navegación entre páginas y gestión de comandos.</li>
+                            <li><strong>Módulo 4:</strong> Acceso a Características Nativas (3h): Uso de sensores del dispositivo (geolocalización, cámara) desde la aplicación MAUI.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('BLAZOR-microsoft')">
+                        Framework Blazor para desarrollos multiplataforma (20 horas)
+                    </button>
+                    <div id="BLAZOR-microsoft" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Desarrollar aplicaciones web interactivas del lado del cliente y del servidor utilizando C# en lugar de JavaScript mediante el framework Blazor.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Programación con ASP .NET (40 horas)</strong> y el curso <strong>Programación con C# .NET (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción a Blazor (5h): Modelo de componentes de Blazor, WebAssembly vs. Blazor Server, y configuración del entorno de desarrollo.</li>
+                            <li><strong>Módulo 2:</strong> Creación de Componentes Interactivos (7h): Desarrollo de interfaces basadas en componentes Razor, manejo de eventos, paso de parámetros y enlace bidireccional de datos.</li>
+                            <li><strong>Módulo 3:</strong> Enrutamiento, Servicios y Estado (5h): Gestión de rutas, inyección de servicios personalizados y manejo del estado de la aplicación.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (3h): Construcción y despliegue de una aplicación web interactiva de una sola página (SPA) desarrollada íntegramente en C#.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="card" id="java">
+                <div class="card-icon"><i class="fa-brands fa-java"></i></div>
+                <div class="card-body">
+                    <h2>Desarrollo JAVA</h2>
+                    <p>Uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en desarrollo de software.</p>
+                    <p>Cursos disponibles:</p>
+                    
+                    <button class="course-toggle" onclick="toggleCourse('java-basico')">
+                        Introducción a la programación con JAVA (40 horas)
+                    </button>
+                    <div id="java-basico" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Establecer las bases sólidas de la programación orientada a objetos utilizando el lenguaje Java, abarcando desde la sintaxis fundamental hasta el manejo estructurado de datos.</p>
+                        <p><strong>Requisito:</strong> Para todo público. <strong>NO se requiere experiencia en programación.</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de Java y Sintaxis (10h): Tipos de datos primitivos, operadores, estructuras de control condicionales (if, switch) y bucles (for, while).</li>
+                            <li><strong>Módulo 2:</strong> Programación Orientada a Objetos (POO) (15h): Clases, objetos, métodos, encapsulamiento, herencia, interfaces y polimorfismo.</li>
+                            <li><strong>Módulo 3:</strong> Colecciones y Manejo de Errores (10h): Uso de arreglos avanzados, listas, mapas (List, Map), y gestión de excepciones mediante bloques try-catch-finally.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (5h): Consolidación de los conceptos básicos mediante la creación de un sistema de contabilidad básica.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('java-web')">
+                        Programación WEB con JSP y Servlets (30 horas)
+                    </button>
+                    <div id="java-web" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Desarrollar aplicaciones web dinámicas del lado del servidor utilizando la tecnología estándar de Java Servlets y JavaServer Pages (JSP).</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JAVA (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Arquitectura Web en Java (8h): Funcionamiento del protocolo HTTP, ciclo de vida de un Servlet y configuración de servidores de aplicaciones (Apache Tomcat).</li>
+                            <li><strong>Módulo 2:</strong> Desarrollo con Servlets (8h): Gestión de peticiones y respuestas HTTP (HttpServletRequest, HttpServletResponse), manejo de parámetros y sesiones de usuario.</li>
+                            <li><strong>Módulo 3:</strong> JavaServer Pages (JSP) (10h): Sintaxis de JSP, uso de etiquetas estándar, expresiones, scripts y separación de la lógica de negocio mediante el patrón Modelo Vista Controlador (MVC).</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Creación de una aplicación web interactiva de inventario con autenticación básica de usuarios.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('java-desk')">
+                        Desarrollo de aplicaciones de escritorio con AWT y Swing (30 horas)
+                    </button>
+                    <div id="java-desk" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Diseñar interfaces gráficas de usuario (GUI) robustas para aplicaciones de escritorio en Java utilizando las librerías clásicas AWT y Swing.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JAVA (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción a interfaces gráficas con AWT y Swing (8h): Diferencias entre componentes ligeros y pesados, contenedores principales (JFrame, JPanel) y jerarquía de componentes.</li>
+                            <li><strong>Módulo 2:</strong> Gestión de Layouts y Componentes Visuales (10h): Uso de administradores de diseño (BorderLayout, FlowLayout, GridBagLayout) y controles interactivos (botones, tablas, menús, cuadros de texto).</li>
+                            <li><strong>Módulo 3:</strong> Gestión de Eventos y Escuchas (8h): Programación dirigida por eventos, interfaces ActionListener, MouseListener y validación de formularios interactivos.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Desarrollo de una aplicación de escritorio de inventario con menús y gestión de tablas de datos locales.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('java-ws')">
+                        Introducción servicios WEB SOAP y REST en JAVA (30 horas)
+                    </button>
+                    <div id="java-ws" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Construir, publicar y consumir servicios web interoperables utilizando tanto arquitecturas basadas en protocolos XML (SOAP) como servicios ligeros basados en recursos (REST).</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JAVA (40 horas)</strong> y el curso <strong>Programación WEB con JSP y Servlets (30 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de Interoperabilidad (6h): Conceptos de servicios web, diferencias clave entre arquitecturas orientadas a servicios (SOA) y RESTful.</li>
+                            <li><strong>Módulo 2:</strong> Servicios Web SOAP en Java (10h): Creación de servicios basados en JAX-WS, contratos WSDL, tipos de datos XML y pruebas de integración.</li>
+                            <li><strong>Módulo 3:</strong> Servicios Web RESTful con JAX-RS (10h): Diseño de APIs orientadas a recursos, uso de verbos HTTP, códigos de estado y serialización automática de objetos a JSON/XML.</li>
+                            <li><strong>Módulo 4:</strong> Pruebas y Consumo (4h): Elaborar Servicios Web para manejo de un inventario, y un cliente JAVA que los consuma.</li>
+                        </ul>
+                    </div>
+
+
+                    <button class="course-toggle" onclick="toggleCourse('java-mvc')">
+                        Introducción al framework Spring MVC (30 horas)
+                    </button>
+                    <div id="java-mvc" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Implementar aplicaciones web estructuradas y modulares utilizando el patrón Modelo-Vista-Controlador provisto por el ecosistema del framework Spring.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JAVA (40 horas)</strong> y el curso <strong>Programación WEB con JSP y Servlets (30 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de Spring y Inyección de Dependencias (8h): Inversión de Control (IoC), contenedores Spring y configuración basada en anotaciones (@Component, @Autowired).</li>
+                            <li><strong>Módulo 2:</strong> Arquitectura Spring MVC (10h): Funcionamiento del DispatcherServlet, mapeo de solicitudes con controladores (@Controller, @RequestMapping), y paso de modelos a vistas.</li>
+                            <li><strong>Módulo 3:</strong> Formularios, Validación y Datos (8h): Vinculación de datos en formularios, validación mediante anotaciones estándar (JSR-303) y manejo de excepciones web.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Construcción de una aplicación de inventario utilizando Spring MVC y vistas interactivas.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('java-boot')">
+                        Introducción a Spring BOOT (30 horas)
+                    </button>
+                    <div id="java-boot" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Acelerar el desarrollo de aplicaciones empresariales independientes y listas para producción utilizando las convenciones y herramientas de autoconfiguración de Spring Boot.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción al framework Spring MVC (30 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción y Configuración Automática (8h): Filosofía de Spring Boot, inicialización de proyectos con Spring Initializr, gestión de dependencias y archivos de propiedades (application.properties/yml).</li>
+                            <li><strong>Módulo 2:</strong> Desarrollo de APIs y Microservicios (10h): Creación rápida de controladores REST con @RestController, gestión de mapeos HTTP y manejo global de errores.</li>
+                            <li><strong>Módulo 3:</strong> Persistencia de Datos con Spring Data JPA (8h): Conexión a bases de datos relacionales, uso de repositorios JPA, entidades y operaciones CRUD simplificadas sin código boilerplate.</li>
+                            <li><strong>Módulo 4:</strong> Pruebas y Despliegue (4h): Pruebas unitarias de componentes y empaquetado de la aplicación en un archivo ejecutable listo para producción.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="card" id="php">
+                <div class="card-icon"><i class="fa-brands fa-php"></i></div>
+                <div class="card-body">
+                    <h2>Programación Web PHP</h2>
+                    <p>Uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en desarrollo de software.</p>
+                    <p>Cursos disponibles:</p>
+                    
+                    <button class="course-toggle" onclick="toggleCourse('php-basico')">
+                        Introducción a la programación PHP (40 horas)
+                    </button>
+                    <div id="php-basico" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Adquirir los fundamentos del lenguaje PHP para el desarrollo de scripts y páginas web dinámicas del lado del servidor.</p>
+                        <p><strong>Requisito:</strong> Para todo público. <strong>NO se requiere experiencia en programación.</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos y Sintaxis de PHP (10h): Variables, tipos de datos, operadores, estructuras de control (condicionales y bucles) y funciones.</li>
+                            <li><strong>Módulo 2:</strong> Formularios y Métodos HTTP (10h): Procesamiento de datos mediante formularios HTML utilizando los métodos GET y POST, validación básica y manejo de variables globales.</li>
+                            <li><strong>Módulo 3:</strong> Programación Orientada a Objetos en PHP (10h): Clases, objetos, métodos, propiedades, herencia y control de acceso.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (10h): Creación de un sitio web estructurado mediante scripts en PHP para un control de inventario.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('php-db')">
+                        Aplicaciones PHP con base de datos MySQL (20 horas)
+                    </button>
+                    <div id="php-db" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Conectar aplicaciones web desarrolladas en PHP con bases de datos MySQL para gestionar la persistencia y manipulación de información de forma segura.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación PHP (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Conexión y Consultas Básicas (5h): Uso de extensiones modernas como PDO o MySQLi, establecimiento de conexiones seguras y ejecución de consultas SQL esenciales.</li>
+                            <li><strong>Módulo 2:</strong> Operaciones CRUD (7h): Implementación de formularios para crear, leer, actualizar y eliminar registros en bases de datos relacionales desde PHP.</li>
+                            <li><strong>Módulo 3:</strong> Seguridad y Buenas Prácticas (5h): Prevención de ataques de inyección SQL mediante sentencias preparadas, manejo de contraseñas con hashing y control de sesiones.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (3h): Desarrollo de un sistema web funcional de inventario con autenticación de usuarios y almacenamiento de datos persistentes.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('php-cake')">
+                        Desarrollo de aplicaciones con CakePHP (30 horas)
+                    </button>
+                    <div id="php-cake" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Construir aplicaciones web estructuradas y robustas utilizando el patrón de diseño MVC a través del framework CakePHP.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación PHP (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción a CakePHP y Arquitectura MVC (8h): Filosofía del framework, convenciones sobre configuración, instalación y estructura de directorios.</li>
+                            <li><strong>Módulo 2:</strong> Modelos, Controladores y Vistas (10h): Gestión de lógica con controladores, consulta de datos mediante ORM integrado y diseño de interfaces con helpers y plantillas (templates).</li>
+                            <li><strong>Módulo 3:</strong> Componentes y Utilidades Avanzadas (8h): Control de acceso, validación automática de datos, gestión de formularios y manejo de componentes de seguridad.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Creación y despliegue de una aplicación de control de inventario utilizando CakePHP.</li>
+                        </ul>
+                    </div>
+
+
+                    <button class="course-toggle" onclick="toggleCourse('php-laravel')">
+                        Desarrollo de aplicaciones con Laravel (30 horas)
+                    </button>
+                    <div id="php-laravel" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Dominar el framework PHP más popular de la actualidad (Laravel) para el desarrollo rápido y estructurado de aplicaciones web y APIs modernas.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación PHP (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de Laravel (8h): Configuración del entorno, uso de la herramienta de línea de comandos Artisan, enrutamiento, controladores y motor de plantillas Blade.</li>
+                            <li><strong>Módulo 2:</strong> Base de Datos y Eloquent ORM (10h): Migraciones de bases de datos, seeders, relaciones complejas entre modelos y consultas mediante Eloquent.</li>
+                            <li><strong>Módulo 3:</strong> Autenticación y Funcionalidades Web (8h): Sistemas de autenticación de usuarios, validación de solicitudes, middleware y gestión de peticiones HTTP.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Desarrollo de una aplicación de control de inventario con panel de administración y control de acceso basado en roles.</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </article>
+
+             <article class="card" id="javascript">
+                <div class="card-icon"><i class="fa-brands fa-js"></i></div>
+                <div class="card-body">
+                    <h2>Programación Javascript</h2>
+                    <p>Uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en desarrollo de software.</p>
+                    <p>Cursos disponibles:</p>
+                    
+                    <button class="course-toggle" onclick="toggleCourse('javascript-basico')">
+                        Introducción a la programación con JavaScript (40 horas)
+                    </button>
+                    <div id="javascript-basico" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Comprender la sintaxis fundamental de JavaScript y su aplicación para dotar de interactividad y dinamismo a las páginas web del lado del cliente.</p>
+                        <p><strong>Requisito:</strong> Para todo público. <strong>NO se requiere experiencia en programación.</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo Introductorio:</strong> HTML, CSS y JavasScript (2h) Manejo de HTML y TAGS principales. Aspectos visuales generales y topicos en diseño web con CSS</li>
+                            <li><strong>Módulo 1:</strong> Fundamentos y Sintaxis (8h): Variables, tipos de datos, operadores, estructuras condicionales y bucles.</li>
+                            <li><strong>Módulo 2:</strong> Funciones y Manipulación del DOM (10h): Declaración de funciones, ámbitos, eventos del navegador y selección/modificación de elementos HTML en tiempo real.</li>
+                            <li><strong>Módulo 3:</strong> Programación Asíncrona y APIs (10h): Uso de callbacks, promesas, funciones async/await y consumo de servicios web mediante fetch.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (10h): Creación de una aplicación web interactiva (libro diario contable).</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('javascript-react')">
+                        Desarrollo de aplicaciones con React JS (30 horas)
+                    </button>
+                    <div id="javascript-react" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Construir aplicaciones web modernas de una sola página (SPA) altamente modulares y eficientes utilizando la librería React JS.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JavaScript (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Fundamentos de React y JSX (8h): Filosofía de componentes, sintaxis JSX, renderizado de elementos y paso de datos mediante propiedades (props).</li>
+                            <li><strong>Módulo 2:</strong> Gestión de Estado y Ciclo de Vida (10h): Uso de Hooks esenciales como useState y useEffect, manejo de eventos y efectos secundarios.</li>
+                            <li><strong>Módulo 3:</strong> Enrutamiento y Conexión con APIs (8h): Implementación de navegación con React Router y consumo de APIs externas desde los componentes.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Desarrollo de un sistema de control de inventario basado en componentes reutilizables.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('javascript-angular')">
+                        Desarrollo de aplicaciones con Angular JS (30 horas)
+                    </button>
+                    <div id="javascript-angular" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Desarrollar aplicaciones web estructuradas y escalables utilizando la arquitectura basada en componentes y TypeScript provista por Angular.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JavaScript (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción a TypeScript y Angular (8h): Fundamentos de TypeScript, arquitectura modular de Angular, CLI y creación del primer componente.</li>
+                            <li><strong>Módulo 2:</strong> Enlace de Datos y Formularios (10h): Directivas estructurales (*ngIf, *ngFor), enlace bidireccional y gestión avanzada de formularios reactivos.</li>
+                            <li><strong>Módulo 3:</strong> Servicios, Enrutamiento y Peticiones HTTP (8h): Creación de servicios reutilizables, inyección de dependencias, gestión de rutas y conexión con servidores mediante HttpClient.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Construcción de un sistema de control de inventario de forma modular.</li>
+                        </ul>
+                    </div>
+
+                    <button class="course-toggle" onclick="toggleCourse('javascript-node')">
+                        Desarrollo de aplicaciones con Node JS (30 horas)
+                    </button>
+                    <div id="javascript-node" class="course-content" style="display: none;">
+                        <p><strong>Objetivo:</strong> Programar servidores, aplicaciones backend y APIs robustas utilizando el entorno de ejecución Node JS y el ecosistema de Express.</p>
+                        <p><strong>Requisito:</strong> El curso <strong>Introducción a la programación con JavaScript (40 horas)</strong>.</p>
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            <li><strong>Módulo 1:</strong> Introducción a Node JS y Módulos (8h): Arquitectura asíncrona orientada a eventos, gestión de paquetes con NPM y uso de módulos nativos del sistema.</li>
+                            <li><strong>Módulo 2:</strong> Desarrollo Backend con Express (10h): Configuración de servidores web, gestión de rutas, uso de middlewares y procesamiento de peticiones HTTP (GET, POST, PUT, DELETE).</li>
+                            <li><strong>Módulo 3:</strong> Conexión a Bases de Datos y Seguridad (8h): Integración con bases de datos relacionales, manejo de variables de entorno y autenticación básica mediante tokens.</li>
+                            <li><strong>Módulo 4:</strong> Proyecto Práctico (4h): Creación y despliegue de una API RESTful para manejo de un inventario. Esta API debe integrarse con clientes web o móviles.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </article>
+
+
+           <!-- <article class="card" id="linux">   
+                <div class="card-icon"><i class="fa-brands fa-linux"></i></div>
+                <div class="card-body">
+                    <h2>Administración Linux</h2>
+                    <p>Uso intensivo de herramientas de IA para adecuarse a los nuevos procedimientos en soporte y administracion de recursos.</p>
+                    <p>Cursos disponibles:</p>
+                    <strong>Instalación de Linux(20 horas) -- Administración de Linux(20 horas) -- Redes en Linux(20 horas)</strong>
+                </div>
+            </article>   -->
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fa-solid fa-users"></i> Modalidad In Company</h3>
+                <p>Dictamos cursos en sus instalaciones. Incluye material digital y certificado de asistencia.</p>
+                <p>Requerimientos: Espacio fisico, PCs, Conexion estable a internet, video bean o similar, sillas, etc. a cuenta de la empresa</p>
+                <p>Horarios: Flexibles al entorno laboral.</p>
+            </div>
+            <div class="sidebar-card">
+                <h3><i class="fa-solid fa-users"></i> Modalidad OnLine</h3>
+                <p>Estudie desde la comodidad de su casa o donde desee usando herramientas interactivas con facilitadores en vivo. Incluye material digital y certificado de asistencia.</p>
+                <p>Requerimientos: Conexion estable a internet, PC con capacidad para instalar las herramientas de desarrollo, la instalacion de la herramienta Jitsi meet y un usuario (google) para usarla.</p>
+                <p>Horarios: Flexibles y acordado con los asistentes.</p>
+            </div>
+            <div class="sidebar-card contact-box">
+                <h3><i class="fa-solid fa-address-book"></i> Contacto</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> 0412 914 50 76</li>
+                    <li><i class="fa-solid fa-envelope"></i> plazayzamorasistemas@gmail.com</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Plaza y Zamora Sistemas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleCourse(id) {
+    var element = document.getElementById(id);
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>
