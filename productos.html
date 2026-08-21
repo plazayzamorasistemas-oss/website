@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Productos y Software | Plaza y Zamora Sistemas</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Desplazamiento suave y espacio para el menú fijo al usar anclajes */
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id], article[id] {
+            scroll-margin-top: 160px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado y Navegación -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <img src="img/logo.png" alt="Logo Plaza y Zamora Sistemas" class="logo-img">
+                Plaza y Zamora Sistemas
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <!-- Menú Desplegable: Productos -->
+                    <li class="dropdown">
+                        <a href="productos.html" class="dropdown-toggle active">
+                            Productos <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="productos.html#librodiario">Libro diario contable</a></li>
+                            <li><a href="productos.html#juegos">Juegos y entretenimiento</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Menú Desplegable: Cursos -->
+                    <li class="dropdown">
+                        <a href="cursos.html" class="dropdown-toggle">
+                            Cursos <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="cursos.html#android">Programación Android</a></li>
+                            <li><a href="cursos.html#microsoft">Tecnologías Microsoft .NET</a></li>
+                            <li><a href="cursos.html#java">Desarrollo JAVA</a></li>
+                            <li><a href="cursos.html#php">Programación Web PHP</a></li>
+                            <li><a href="cursos.html#javascript">Programación JavaScript</a></li>
+                            <li><a href="cursos.html#linux">Administración Linux</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="contacto.html" class="btn-nav">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal / Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Nuestras Soluciones de Software</h1>
+            <p>Sistemas robustos de gestión empresarial y desarrollo de aplicaciones a la medida para potenciar tu negocio.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5491123456789?text=Feliz%20dia,%20quiero%20informacion%20sobre%20sus%20productos" 
+                    class="btn btn-primary" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container main-layout">
+        
+        <!-- Área Central de Productos -->
+        <div class="content-area">
+            
+            <!-- Producto 1: Nómina -->
+            <article class="card" id="librodiario">
+                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="card-body">
+                    <h2>Libro diario contable</h2>
+                    <p>Presentamos una aplicacion sencilla de contabilidad básica que asegura un tratamiento local de los datos.</p>
+                    <p>Al hacer clic en el enlace, podrá agregar los asientos contables, guardar los registros en su dispositivo y cargarlos nuevamente cuando desee.</p>
+                    <p>La version demo tiene centros de costos prefijados, que pueden ser adaptados a su negocio, incluso, intractuar con su aplicacion contable.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="./productos/Administrativos/Contabilidad/LibroDiarioDemo/Librodiario.html" class="btn btn-secondary">
+                            <i class="fa-solid fa-download"></i> Usar Demo 100% funcional
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Producto 2: Juegos -->
+            <article class="card" id="juegos">
+                <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                <div class="card-body">
+                    <h2>Desarrollo de Juegos</h2>
+                    <p>Ejemplos para incentivar el aprendizaje de herramientas para la creación de videojuegos sencillos y adictivos para niños y adultos.</p>
+                    <a href="./productos/juegos/esquiva/Minijuego_Esquiva!!! (2).html" class="btn btn-secondary">
+                            <i class="fa-solid fa-download"></i> Jugar Esquiva!!!
+                        </a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Barra Lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fa-solid fa-users"></i> Quiénes Somos</h3>
+                <p>Somos profesionales en el área de sistemas con más de 20 años de experiencia en desarrollo de aplicaciones para PC, Servidores y arquitecturas multicapa (Windows, Linux, Unix y Android). Especialistas en Servicios Web SOAP/REST y bases de datos Oracle, SQL Server, PostgreSQL, MySQL y SQLite.</p>
+                
+                <div class="qr-container">
+                    <img src="img/qr_code.png" alt="Código QR de contacto" class="qr-code"/>
+                    <span>Escanea para guardar contacto</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card contact-box">
+                <h3><i class="fa-solid fa-address-book"></i> Canales Directos</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> <strong>0412 914 50 76</strong></li>
+                    <li><i class="fa-solid fa-envelope"></i> plazayzamorasistemas@gmail.com</li>
+                </ul>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Plaza y Zamora Sistemas. Todos los derechos reservados.</p>
+            <p>Teléfono: <strong>0412 914 50 76</strong></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
