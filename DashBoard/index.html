@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Ventas Mensuales</title>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* ==========================================
+       ESTILOS CSS (Vanilla)
+       ========================================== */
+    :root {
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* FILTROS */
+    .filters-bar {
+      background: var(--card-bg);
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .filter-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-group select {
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: #fff;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      cursor: pointer;
+      min-width: 160px;
+    }
+
+    .filter-group select:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-reset {
+      margin-top: auto;
+      padding: 9px 16px;
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-reset:hover {
+      background-color: #e2e8f0;
+    }
+
+    /* TARJETAS KPI */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+    }
+
+    .kpi-card h3 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kpi-card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* SECCIÓN DE GRÁFICOS */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    /* TABLA DE DATOS */
+    .table-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+    }
+
+    .table-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .number-col {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Dashboard de Ventas Mensuales</h1>
+      <p>Monitoreo de rendimiento, tendencias y análisis dimensional</p>
+    </header>
+
+    <!-- Barra de Filtros -->
+    <div class="filters-bar">
+      <div class="filter-group">
+        <label for="filterRegion">Región</label>
+        <select id="filterRegion">
+          <option value="todos">Todas las Regiones</option>
+          <option value="Norte">Norte</option>
+          <option value="Sur">Sur</option>
+          <option value="Este">Este</option>
+          <option value="Oeste">Oeste</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterCategory">Categoría</label>
+        <select id="filterCategory">
+          <option value="todos">Todas las Categorías</option>
+          <option value="Electrónica">Electrónica</option>
+          <option value="Ropa">Ropa</option>
+          <option value="Hogar">Hogar</option>
+        </select>
+      </div>
+
+      <button class="btn-reset" id="btnReset">Limpiar Filtros</button>
+    </div>
+
+    <!-- Tarjetas KPI -->
+    <div class="kpi-grid">
+      <div class="kpi-card" style="border-color: #2563eb;">
+        <h3>Ventas Totales</h3>
+        <div class="value" id="kpiTotalSales">$0</div>
+      </div>
+      <div class="kpi-card" style="border-color: #10b981;">
+        <h3>Transacciones</h3>
+        <div class="value" id="kpiTotalTransactions">0</div>
+      </div>
+      <div class="kpi-card" style="border-color: #f59e0b;">
+        <h3>Ticket Promedio</h3>
+        <div class="value" id="kpiAverageTicket">$0</div>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h2>Evolución Mensual de Ventas</h2>
+        <div class="chart-container">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h2>Ventas por Categoría</h2>
+        <div class="chart-container">
+          <canvas id="doughnutChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Datos -->
+    <div class="table-card">
+      <h2>Detalle de Registro de Ventas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Mes</th>
+            <th>Región</th>
+            <th>Categoría</th>
+            <th class="number-col">Transacciones</th>
+            <th class="number-col">Monto Total</th>
+          </tr>
+        </thead>
+        <tbody id="salesTableBody">
+          <!-- Filas generadas dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       LÓGICA JAVASCRIPT (Vanilla)
+       ========================================== -->
+  <script>
+    // 1. Dataset de ventas
+    const rawSalesData = [
+      { month: 'Enero', region: 'Norte', category: 'Electrónica', sales: 12000, transactions: 150 },
+      { month: 'Enero', region: 'Sur', category: 'Ropa', sales: 8500, transactions: 210 },
+      { month: 'Enero', region: 'Este', category: 'Hogar', sales: 6200, transactions: 95 },
+      { month: 'Enero', region: 'Oeste', category: 'Electrónica', sales: 11000, transactions: 130 },
+
+      { month: 'Febrero', region: 'Norte', category: 'Ropa', sales: 9400, transactions: 180 },
+      { month: 'Febrero', region: 'Sur', category: 'Electrónica', sales: 14500, transactions: 160 },
+      { month: 'Febrero', region: 'Este', category: 'Hogar', sales: 7100, transactions: 110 },
+      { month: 'Febrero', region: 'Oeste', category: 'Ropa', sales: 8900, transactions: 190 },
+
+      { month: 'Marzo', region: 'Norte', category: 'Hogar', sales: 8300, transactions: 125 },
+      { month: 'Marzo', region: 'Sur', category: 'Electrónica', sales: 16800, transactions: 200 },
+      { month: 'Marzo', region: 'Este', category: 'Ropa', sales: 10200, transactions: 220 },
+      { month: 'Marzo', region: 'Oeste', category: 'Hogar', sales: 6900, transactions: 90 },
+
+      { month: 'Abril', region: 'Norte', category: 'Electrónica', sales: 15100, transactions: 175 },
+      { month: 'Abril', region: 'Sur', category: 'Hogar', sales: 7800, transactions: 105 },
+      { month: 'Abril', region: 'Este', category: 'Electrónica', sales: 13400, transactions: 155 },
+      { month: 'Abril', region: 'Oeste', category: 'Ropa', sales: 9600, transactions: 205 },
+
+      { month: 'Mayo', region: 'Norte', category: 'Ropa', sales: 11200, transactions: 230 },
+      { month: 'Mayo', region: 'Sur', category: 'Electrónica', sales: 18900, transactions: 210 },
+      { month: 'Mayo', region: 'Este', category: 'Hogar', sales: 8500, transactions: 130 },
+      { month: 'Mayo', region: 'Oeste', category: 'Electrónica', sales: 14200, transactions: 165 },
+
+      { month: 'Junio', region: 'Norte', category: 'Electrónica', sales: 16500, transactions: 190 },
+      { month: 'Junio', region: 'Sur', category: 'Ropa', sales: 12300, transactions: 250 },
+      { month: 'Junio', region: 'Este', category: 'Electrónica', sales: 15800, transactions: 180 },
+      { month: 'Junio', region: 'Oeste', category: 'Hogar', sales: 9100, transactions: 140 }
+    ];
+
+    const monthsOrder = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
+
+    // 2. Referencias del DOM
+    const filterRegion = document.getElementById('filterRegion');
+    const filterCategory = document.getElementById('filterCategory');
+    const btnReset = document.getElementById('btnReset');
+
+    const kpiTotalSales = document.getElementById('kpiTotalSales');
+    const kpiTotalTransactions = document.getElementById('kpiTotalTransactions');
+    const kpiAverageTicket = document.getElementById('kpiAverageTicket');
+
+    const salesTableBody = document.getElementById('salesTableBody');
+
+    let lineChartInstance = null;
+    let doughnutChartInstance = null;
+
+    // 3. Formateadores
+    const formatCurrency = (amount) => {
+      return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(amount);
+    };
+
+    const formatNumber = (num) => {
+      return new Intl.NumberFormat('es-MX').format(num);
+    };
+
+    // 4. Filtrar datos segun seleccion
+    function getFilteredData() {
+      const selectedRegion = filterRegion.value;
+      const selectedCategory = filterCategory.value;
+
+      return rawSalesData.filter(item => {
+        const matchRegion = selectedRegion === 'todos' || item.region === selectedRegion;
+        const matchCategory = selectedCategory === 'todos' || item.category === selectedCategory;
+        return matchRegion && matchCategory;
+      });
+    }
+
+    // 5. Actualizar Indicadores (KPIs)
+    function updateKPIs(data) {
+      const totalSales = data.reduce((sum, item) => sum + item.sales, 0);
+      const totalTransactions = data.reduce((sum, item) => sum + item.transactions, 0);
+      const averageTicket = totalTransactions > 0 ? totalSales / totalTransactions : 0;
+
+      kpiTotalSales.textContent = formatCurrency(totalSales);
+      kpiTotalTransactions.textContent = formatNumber(totalTransactions);
+      kpiAverageTicket.textContent = formatCurrency(averageTicket);
+    }
+
+    // 6. Actualizar Tabla
+    function updateTable(data) {
+      salesTableBody.innerHTML = '';
+
+      if (data.length === 0) {
+        salesTableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No hay registros disponibles para este filtro.</td></tr>';
+        return;
+      }
+
+      data.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.month}</td>
+          <td>${item.region}</td>
+          <td>${item.category}</td>
+          <td class="number-col">${formatNumber(item.transactions)}</td>
+          <td class="number-col">${formatCurrency(item.sales)}</td>
+        `;
+        salesTableBody.appendChild(tr);
+      });
+    }
+
+    // 7. Inicializar y actualizar Gráficos
+    function updateCharts(data) {
+      // Prepara datos para Gráfico de Línea (Ventas por Mes)
+      const monthlySalesMap = {};
+      monthsOrder.forEach(m => monthlySalesMap[m] = 0);
+      
+      data.forEach(item => {
+        if (monthlySalesMap[item.month] !== undefined) {
+          monthlySalesMap[item.month] += item.sales;
+        }
+      });
+
+      const lineLabels = monthsOrder;
+      const lineDataValues = monthsOrder.map(m => monthlySalesMap[m]);
+
+      // Prepara datos para Gráfico de Rosquilla (Ventas por Categoría)
+      const categorySalesMap = {};
+      data.forEach(item => {
+        categorySalesMap[item.category] = (categorySalesMap[item.category] || 0) + item.sales;
+      });
+
+      const doughnutLabels = Object.keys(categorySalesMap);
+      const doughnutDataValues = Object.values(categorySalesMap);
+
+      // Render o Update Gráfico de Línea
+      if (lineChartInstance) {
+        lineChartInstance.data.labels = lineLabels;
+        lineChartInstance.data.datasets[0].data = lineDataValues;
+        lineChartInstance.update();
+      } else {
+        const ctxLine = document.getElementById('lineChart').getContext('2d');
+        lineChartInstance = new Chart(ctxLine, {
+          type: 'line',
+          data: {
+            labels: lineLabels,
+            datasets: [{
+              label: 'Ventas Mensuales',
+              data: lineDataValues,
+              borderColor: '#2563eb',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
+              fill: true,
+              tension: 0.3,
+              pointRadius: 5,
+              pointHoverRadius: 7
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: (value) => '$' + value.toLocaleString()
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Render o Update Gráfico de Rosquilla
+      if (doughnutChartInstance) {
+        doughnutChartInstance.data.labels = doughnutLabels;
+        doughnutChartInstance.data.datasets[0].data = doughnutDataValues;
+        doughnutChartInstance.update();
+      } else {
+        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        doughnutChartInstance = new Chart(ctxDoughnut, {
+          type: 'doughnut',
+          data: {
+            labels: doughnutLabels,
+            datasets: [{
+              data: doughnutDataValues,
+              backgroundColor: ['#2563eb', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+      }
+    }
+
+    // 8. Función global de renderizado
+    function renderDashboard() {
+      const filteredData = getFilteredData();
+      updateKPIs(filteredData);
+      updateCharts(filteredData);
+      updateTable(filteredData);
+    }
+
+    // 9. Event Listeners
+    filterRegion.addEventListener('change', renderDashboard);
+    filterCategory.addEventListener('change', renderDashboard);
+
+    btnReset.addEventListener('click', () => {
+      filterRegion.value = 'todos';
+      filterCategory.value = 'todos';
+      renderDashboard();
+    });
+
+    // 10. Carga Inicial
+    document.addEventListener('DOMContentLoaded', renderDashboard);
+  </script>
+</body>
+</html>
