@@ -18,6 +18,112 @@
         section[id], article[id] {
             scroll-margin-top: 160px;
         }
+
+        /* Estilos idénticos a los botones de cursos */
+        .product-toggle {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .product-toggle:hover {
+            background: #e9ecef;
+        }
+
+        .product-content {
+            background: #ffffff;
+            padding: 15px;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* --- ESTILOS DEL CARRUSEL --- */
+        .carousel-wrapper {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%; 
+            max-width: 800px; 
+            overflow: hidden; 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background-color: #fff;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; 
+        }
+
+        .carousel-track img {
+            width: 100%;
+            flex-shrink: 0; 
+            object-fit: contain; 
+            max-height: 60vh; 
+            background-color: #f0f0f0; 
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: #333;
+            border-color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -92,51 +198,153 @@
         
         <!-- Área Central de Productos -->
         <div class="content-area">
+            
             <!-- Producto 1: HotSpot Portal -->
             <article class="card" id="HotSpotPortal">
                 <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
                 <div class="card-body">
-                    <h2>PortalSpot</h2>
-                    <p>Implementamos un nuevo canal de ventas usando la conexion Mobile HotSpot de Microsoft Windows 11.</p>
-                    <p>Al permitir que otros dispositivos puedan accesar su red wifi compartida a través de su PC o Laptop, podrá mostrar su vitrina de productos y servicios con una cobertura de su local o establecimiento comercial <b>sin usar internet ni plan de datos</b>.</p>
-                    <p>Tener PortalSpot en su local o establecimiento le brinda un canal más de interacción con sus clientes fisicos. Imagine mostrar listas de precios, menús o las ofertas del dia en el celular de sus clientes.</p>
-                    <p>Tenga la version 100% funcional, con instalador amigable y sin tiempo de interrupción, por solo 50$ y contará con nuestros canales de soporte sin costo adicional.</p>
-                    <p>Reciba informacion gratis, llame al 0412 914 50 76 o escriba al correo plazayzamorasistemas@gmail.com.</p>
-                    <div style="margin-top: 15px;">
-                        <a href="https://mega.nz/file/e5ACVYJL#1d1nFy377IyT9dG6MMj84Gt5u-y0PopKeXOGF4QSF-M"  class="btn btn-secondary">
-                            <i class="fa-solid fa-download"></i> Descargue el archivo zip y ejecute PortalCautivo.exe  para usar Demo 100% funcional (Trabaja por 5 minutos)
-                        </a>
-                    </div>
-                    <p>Para evitar bloqueos, NO DESCOMPRIMA EL ARCHIVO zip, solo abralo usando WinRar y ejecute el archivo PortalCautivo.exe, además de la Zona con cobertura inalámbrica móvil en el mismo equipo.</p> 
-                </div>
-            </article>
-            <!-- Producto 2: Libro Diario -->
-            <article class="card" id="librodiario">
-                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
-                <div class="card-body">
-                    <h2>Libro diario contable</h2>
-                    <p>En Venezuela, el Código de Comercio y la Ley de IVA establecen obligaciones de llevar libros contables y fiscales que respaldan tanto la contabilidad mercantil como la declaración del impuesto.</p>
-                    <p>Presentamos la versión básica de libro diario con total seguridad de sus datos al mantenerlos local en su dispositivo.</p>
-                    <p>Al hacer clic en el enlace, podrá agregar los asientos contables, guardar los registros en su dispositivo y cargarlos nuevamente cuando desee.</p>
-                    <p>La version demo tiene centros de costos prefijados, que pueden ser adaptados a su negocio, incluso, intractuar con su aplicacion contable.</p>
-                    <div style="margin-top: 15px;">
-                        <a href="./productos/Administrativos/Contabilidad/LibroDiarioDemo/Librodiario.html" class="btn btn-secondary">
-                            <i class="fa-solid fa-download"></i> Usar Demo 100% funcional hecha con HTML, JavaScript y CSS
-                        </a>
+                    <button class="product-toggle" onclick="toggleProduct('desc-hotspot')">
+                        PortalSpot
+                    </button>
+                    <div id="desc-hotspot" class="product-content" style="display: none;">
+                        <p>Implementamos un nuevo canal de ventas usando la conexion Mobile HotSpot de Microsoft Windows 11.</p>
+                        <p>Al permitir que otros dispositivos puedan accesar su red wifi compartida a través de su PC o Laptop, podrá mostrar su vitrina de productos y servicios con una cobertura de su local o establecimiento comercial <b>sin usar internet ni plan de datos</b>.</p>
+                        <p>Tener PortalSpot en su local o establecimiento le brinda un canal más de interacción con sus clientes fisicos. Imagine mostrar listas de precios, menús o las ofertas del dia en el celular de sus clientes.</p>
+                        <p>Tenga la version 100% funcional, con instalador amigable y sin tiempo de interrupción, por solo 50$ y contará con nuestros canales de soporte sin costo adicional.</p>
+                        <p>Reciba informacion gratis, llame al 0412 914 50 76 o escriba al correo plazayzamorasistemas@gmail.com.</p>
+                        
+                        <!-- Botón de descarga -->
+                        <div style="margin-top: 15px;">
+                            <a href="./productos/Utilitarios/PortalSpot/Instalador_PortalSpot_Demo.exe" class="btn btn-secondary">
+                                <i class="fa-solid fa-download"></i> Descargue el instalador de la versión DEMO 100% funcional (Trabaja por 5 minutos)
+                            </a>
+                        </div>
+                        <p style="margin-top: 10px;">Cómo descargar la demo:.</p>
+
+                        <!-- CARRUSEL INTEGRADO AQUÍ -->
+                        <div class="carousel-wrapper">
+                            <div class="carousel-container" id="carouselContainer">
+                                <!-- Botón Anterior -->
+                                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                                
+                                <!-- Pista de Imágenes -->
+                                <div class="carousel-track" id="track">
+                                    <!-- Asegúrate de que las imágenes estén en la carpeta 'img' -->
+                                    <img src="img/01.png" alt="Captura 1">
+                                    <img src="img/02.png" alt="Captura 2">
+                                    <img src="img/03.png" alt="Captura 3">
+                                    <img src="img/04.png" alt="Captura 4">
+                                    <img src="img/05.png" alt="Captura 5">
+                                    <img src="img/06.png" alt="Captura 6">
+                                    <img src="img/07.png" alt="Captura 7">
+                                    <img src="img/08.png" alt="Captura 8">
+                                </div>
+
+                                <!-- Botón Siguiente -->
+                                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+
+                                <!-- Indicadores -->
+                                <div class="carousel-indicators" id="indicators">
+                                    <!-- Se generan dinámicamente con JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DEL CARRUSEL -->
+
                     </div>
                 </div>
             </article>
 
+            <!-- Producto 2: HotSpot Timer -->
+            <article class="card" id="HotSpotTimer">
+                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="card-body">
+                    <button class="product-toggle" onclick="toggleProduct('desc-hotspotTimer')">
+                        Hot Spot Timer
+                    </button>
+                    <div id="desc-hotspotTimer" class="product-content" style="display: none;">
+                        <p>Administra tu conexión de internet al compartirla con Microsoft Windows 11.</p>
+                        <p>Controle quien se conecta y asignele tiempo de uso independiente para cada conexión. </b>.</p>
+                        <p>Monetice su conexión a Internet, tome ventaja en su local comercial de su conexion a internet.</p>
+                        <p>Tenga la version 100% funcional, con instalador amigable y con manejo del tiempo de conexión, por solo 50$ y contará con nuestros canales de soporte sin costo adicional.</p>
+                        <p>Reciba informacion gratis, llame al 0412 914 50 76 o escriba al correo plazayzamorasistemas@gmail.com.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="./productos/Utilitarios/PortalSpot/Instalador_HotSpotTimer_Demo.exe" class="btn btn-secondary">
+                                <i class="fa-solid fa-download"></i> Descargue el instalador de la versión DEMO (Habilita accesos a la internet compartida por 5 minutos)
+                            </a>
+                        </div>
+                        <p style="margin-top: 10px;">Cómo descargar la demo:.</p>
+
+                        
+                        <!-- CARRUSEL INTEGRADO AQUÍ -->
+                        <div class="carousel-wrapper">
+                            <div class="carousel-container" id="carouselContainer">
+                                <!-- Botón Anterior -->
+                                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                                
+                                <!-- Pista de Imágenes -->
+                                <div class="carousel-track" id="track">
+                                    <!-- Asegúrate de que las imágenes estén en la carpeta 'img' -->
+                                    <img src="img/01.png" alt="Captura 1">
+                                    <img src="img/02.png" alt="Captura 2">
+                                    <img src="img/03.png" alt="Captura 3">
+                                    <img src="img/04.png" alt="Captura 4">
+                                    <img src="img/05.png" alt="Captura 5">
+                                    <img src="img/06.png" alt="Captura 6">
+                                    <img src="img/07.png" alt="Captura 7">
+                                    <img src="img/08.png" alt="Captura 8">
+                                </div>
+
+                                <!-- Botón Siguiente -->
+                                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+
+                                <!-- Indicadores -->
+                                <div class="carousel-indicators" id="indicators">
+                                    <!-- Se generan dinámicamente con JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIN DEL CARRUSEL -->
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2: Libro Diario -->
+            <article class="card" id="librodiario">
+                <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                <div class="card-body">
+                    <button class="product-toggle" onclick="toggleProduct('desc-librodiario')">
+                        Libro diario contable
+                    </button>
+                    <div id="desc-librodiario" class="product-content" style="display: none;">
+                        <p>En Venezuela, el Código de Comercio y la Ley de IVA establecen obligaciones de llevar libros contables y fiscales que respaldan tanto la contabilidad mercantil como la declaración del impuesto.</p>
+                        <p>Presentamos la versión básica de libro diario con total seguridad de sus datos al mantenerlos local en su dispositivo.</p>
+                        <p>Al hacer clic en el enlace, podrá agregar los asientos contables, guardar los registros en su dispositivo y cargarlos nuevamente cuando desee.</p>
+                        <p>La version demo tiene centros de costos prefijados, que pueden ser adaptados a su negocio, incluso, intractuar con su aplicacion contable.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="./productos/Administrativos/Contabilidad/LibroDiarioDemo/Librodiario.html" class="btn btn-secondary">
+                                <i class="fa-solid fa-download"></i> Usar Demo 100% funcional hecha con HTML, JavaScript y CSS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
             <!-- Producto 3: Juegos -->
             <article class="card" id="juegos">
                 <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
                 <div class="card-body">
-                    <h2>Desarrollo de Juegos</h2>
-                    <p>Ejemplos para incentivar el aprendizaje de herramientas para la creación de videojuegos sencillos y adictivos para niños y adultos.</p>
-                    <a href="./productos/juegos/esquiva/Minijuego_Esquiva!!! (2).html" class="btn btn-secondary">
-                            <i class="fa-solid fa-download"></i> Jugar Esquiva!!! - Hecho en Scratch
-                        </a>
+                    <button class="product-toggle" onclick="toggleProduct('desc-juegos')">
+                        Desarrollo de Juegos
+                    </button>
+                    <div id="desc-juegos" class="product-content" style="display: none;">
+                        <p>Ejemplos para incentivar el aprendizaje de herramientas para la creación de videojuegos sencillos y adictivos para niños y adultos.</p>
+                        <div style="margin-top: 15px;">
+                            <a href="./productos/juegos/esquiva/Minijuego_Esquiva!!! (2).html" class="btn btn-secondary">
+                                <i class="fa-solid fa-download"></i> Jugar Esquiva!!! - Hecho en Scratch
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </article>
 
@@ -174,5 +382,113 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // --- LÓGICA DEL CARRUSEL ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('track');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            const carouselContainer = document.getElementById('carouselContainer');
+            
+            // Solo ejecutar si el carrusel existe en la página
+            if (track && prevBtn && nextBtn && indicatorsContainer) {
+                const images = Array.from(track.children);
+                const totalImages = images.length;
+                let currentIndex = 0;
+                
+                let autoPlayInterval;
+                const TIEMPO_ESPERA = 5000; // 5 segundos
+
+                // Crear indicadores
+                images.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('indicator');
+                    if (index === 0) dot.classList.add('active');
+                    
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                        resetAutoPlay();
+                    });
+                    
+                    indicatorsContainer.appendChild(dot);
+                });
+
+                const indicators = Array.from(indicatorsContainer.children);
+
+                function updateCarousel() {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    indicators.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+
+                function nextImage() {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateCarousel();
+                }
+
+                function startAutoPlay() {
+                    clearInterval(autoPlayInterval); 
+                    autoPlayInterval = setInterval(nextImage, TIEMPO_ESPERA);
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                function resetAutoPlay() {
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    nextImage();
+                    resetAutoPlay();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                    updateCarousel();
+                    resetAutoPlay();
+                });
+
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+                document.addEventListener('keydown', (e) => {
+                    // Solo navegar con teclado si el carrusel está visible
+                    if (carouselContainer.offsetParent !== null) {
+                        if (e.key === 'ArrowRight') {
+                            nextImage();
+                            resetAutoPlay();
+                        } else if (e.key === 'ArrowLeft') {
+                            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                            updateCarousel();
+                            resetAutoPlay();
+                        }
+                    }
+                });
+
+                startAutoPlay();
+            }
+        });
+
+        // --- LÓGICA DE LOS TOGGLES DE PRODUCTOS ---
+        function toggleProduct(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
