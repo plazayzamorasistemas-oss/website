@@ -223,9 +223,9 @@
 
                         <!-- CARRUSEL INTEGRADO AQUÍ -->
                         <div class="carousel-wrapper">
-                            <div class="carousel-container" id="carouselContainer">
+                            <div class="carousel-container">
                                 <!-- Botón Anterior -->
-                                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                                <button class="carousel-btn prev-btn" >&#10094;</button>
                                 
                                 <!-- Pista de Imágenes -->
                                 <div class="carousel-track" id="track">
@@ -241,10 +241,10 @@
                                 </div>
 
                                 <!-- Botón Siguiente -->
-                                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+                                <button class="carousel-btn next-btn" >&#10095;</button>
 
                                 <!-- Indicadores -->
-                                <div class="carousel-indicators" id="indicators">
+                                <div class="carousel-indicators" >
                                     <!-- Se generan dinámicamente con JavaScript -->
                                 </div>
                             </div>
@@ -278,9 +278,9 @@
                         
                         <!-- CARRUSEL INTEGRADO AQUÍ -->
                         <div class="carousel-wrapper">
-                            <div class="carousel-container" id="carouselContainer">
+                            <div class="carousel-container">
                                 <!-- Botón Anterior -->
-                                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                                <button class="carousel-btn prev-btn" >&#10094;</button>
                                 
                                 <!-- Pista de Imágenes -->
                                 <div class="carousel-track" id="track">
@@ -296,10 +296,10 @@
                                 </div>
 
                                 <!-- Botón Siguiente -->
-                                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+                                <button class="carousel-btn next-btn">&#10095;</button>
 
                                 <!-- Indicadores -->
-                                <div class="carousel-indicators" id="indicators">
+                                <div class="carousel-indicators" >
                                     <!-- Se generan dinámicamente con JavaScript -->
                                 </div>
                             </div>
@@ -384,87 +384,83 @@
     <script src="js/main.js"></script>
     <script>
         // --- LÓGICA DEL CARRUSEL ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const track = document.getElementById('track');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const indicatorsContainer = document.getElementById('indicators');
-            const carouselContainer = document.getElementById('carouselContainer');
-            
-            // Solo ejecutar si el carrusel existe en la página
-            if (track && prevBtn && nextBtn && indicatorsContainer) {
-                const images = Array.from(track.children);
-                const totalImages = images.length;
-                let currentIndex = 0;
-                
-                let autoPlayInterval;
+            document.addEventListener('DOMContentLoaded', () => {
                 const TIEMPO_ESPERA = 5000; // 5 segundos
 
-                // Crear indicadores
-                images.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('indicator');
-                    if (index === 0) dot.classList.add('active');
-                    
-                    dot.addEventListener('click', () => {
-                        currentIndex = index;
+                // Recorre TODOS los carruseles de la página
+                document.querySelectorAll('.carousel-container').forEach((carouselContainer) => {
+                    const track = carouselContainer.querySelector('.carousel-track');
+                    const prevBtn = carouselContainer.querySelector('.prev-btn');
+                    const nextBtn = carouselContainer.querySelector('.next-btn');
+                    const indicatorsContainer = carouselContainer.querySelector('.carousel-indicators');
+
+                    if (!track || !prevBtn || !nextBtn || !indicatorsContainer) return;
+
+                    const images = Array.from(track.children);
+                    const totalImages = images.length;
+                    let currentIndex = 0;
+                    let autoPlayInterval = null;
+
+                    // Crear indicadores
+                    images.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.classList.add('indicator');
+                        if (index === 0) dot.classList.add('active');
+
+                        dot.addEventListener('click', () => {
+                            currentIndex = index;
+                            updateCarousel();
+                            resetAutoPlay();
+                        });
+
+                        indicatorsContainer.appendChild(dot);
+                    });
+
+                    const indicators = Array.from(indicatorsContainer.children);
+
+                    function updateCarousel() {
+                        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                        indicators.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === currentIndex);
+                        });
+                    }
+
+                    function nextImage() {
+                        currentIndex = (currentIndex + 1) % totalImages;
+                        updateCarousel();
+                    }
+
+                    function startAutoPlay() {
+                        stopAutoPlay();
+                        autoPlayInterval = setInterval(nextImage, TIEMPO_ESPERA);
+                    }
+
+                    function stopAutoPlay() {
+                        if (autoPlayInterval) clearInterval(autoPlayInterval);
+                    }
+
+                    function resetAutoPlay() {
+                        stopAutoPlay();
+                        startAutoPlay();
+                    }
+
+                    nextBtn.addEventListener('click', () => {
+                        nextImage();
+                        resetAutoPlay();
+                    });
+
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
                         updateCarousel();
                         resetAutoPlay();
                     });
-                    
-                    indicatorsContainer.appendChild(dot);
-                });
 
-                const indicators = Array.from(indicatorsContainer.children);
+                    carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                    carouselContainer.addEventListener('mouseleave', startAutoPlay);
 
-                function updateCarousel() {
-                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    
-                    indicators.forEach((dot, index) => {
-                        if (index === currentIndex) {
-                            dot.classList.add('active');
-                        } else {
-                            dot.classList.remove('active');
-                        }
-                    });
-                }
-
-                function nextImage() {
-                    currentIndex = (currentIndex + 1) % totalImages;
-                    updateCarousel();
-                }
-
-                function startAutoPlay() {
-                    clearInterval(autoPlayInterval); 
-                    autoPlayInterval = setInterval(nextImage, TIEMPO_ESPERA);
-                }
-
-                function stopAutoPlay() {
-                    clearInterval(autoPlayInterval);
-                }
-
-                function resetAutoPlay() {
-                    stopAutoPlay();
-                    startAutoPlay();
-                }
-
-                nextBtn.addEventListener('click', () => {
-                    nextImage();
-                    resetAutoPlay();
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-                    updateCarousel();
-                    resetAutoPlay();
-                });
-
-                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-                carouselContainer.addEventListener('mouseleave', startAutoPlay);
-
-                document.addEventListener('keydown', (e) => {
-                    // Solo navegar con teclado si el carrusel está visible
-                    if (carouselContainer.offsetParent !== null) {
+                    // Navegación con teclado solo si el carrusel está visible
+                    document.addEventListener('keydown', (e) => {
+                        if (carouselContainer.offsetParent === null) return; // oculto
                         if (e.key === 'ArrowRight') {
                             nextImage();
                             resetAutoPlay();
@@ -473,13 +469,11 @@
                             updateCarousel();
                             resetAutoPlay();
                         }
-                    }
+                    });
+
+                    startAutoPlay();
                 });
-
-                startAutoPlay();
-            }
-        });
-
+            });
         // --- LÓGICA DE LOS TOGGLES DE PRODUCTOS ---
         function toggleProduct(id) {
             var element = document.getElementById(id);
